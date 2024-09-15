@@ -17,6 +17,19 @@ Create classes to represent geometric shapes, including circles and rectangles. 
         abstract public function areaMethod();
     }
 
+    class Rectangle extends Shape{
+
+        private $rectWidth;
+        private $rectHeight;
+        public function __construct($rectWidth, $rectHeight){
+            $this->rectWidth = $rectWidth; 
+            $this->rectHeight = $rectHeight;
+        }
+        public function areaMethod(){
+            return $this->rectWidth * $this->rectHeight;
+        }
+    }
+
     class Circle extends Shape{
 
         private $shapeRadius;
@@ -24,15 +37,18 @@ Create classes to represent geometric shapes, including circles and rectangles. 
             $this->shapeRadius = $shapeRadius;
         }
         public function areaMethod(){
-
+            return pi() * pow($this->shapeRadius,2);
         }
     }
     function showArea(Shape $shape){
-        echo"Area of the ". $shape->getName() . " is " . $shape->area();
+        echo"Area of the  is " . $shape->areaMethod();
     }
 
-    $circle = new Circle(2.4);
+    $circle = new Circle(5.8);
     showArea($circle);
+
+    $rectangle = new Rectangle(5.8, 2.5);
+    showArea($rectangle);
 
     ?>
 </body>
