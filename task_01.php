@@ -14,7 +14,14 @@ Create classes to represent geometric shapes, including circles and rectangles. 
     // Area of the rectangle is width * height
 
     abstract class Shape{
+        private $name;
+        public function __construct($name){ 
+            $this->name = $name;
+        }
         abstract public function areaMethod();
+        public function getName(){
+            return $this->name;
+        }
     }
 
     class Rectangle extends Shape{
@@ -22,6 +29,7 @@ Create classes to represent geometric shapes, including circles and rectangles. 
         private $rectWidth;
         private $rectHeight;
         public function __construct($rectWidth, $rectHeight){
+            parent::__construct("rectangle");
             $this->rectWidth = $rectWidth; 
             $this->rectHeight = $rectHeight;
         }
@@ -34,6 +42,7 @@ Create classes to represent geometric shapes, including circles and rectangles. 
 
         private $shapeRadius;
         public function __construct($shapeRadius){
+            parent::__construct("circle");
             $this->shapeRadius = $shapeRadius;
         }
         public function areaMethod(){
@@ -41,7 +50,7 @@ Create classes to represent geometric shapes, including circles and rectangles. 
         }
     }
     function showArea(Shape $shape){
-        echo"Area of the  is " . $shape->areaMethod();
+        echo"Area of the  is " . $shape->getName() . " is " . $shape->areaMethod() . "<br/>";
     }
 
     $circle = new Circle(5.8);
