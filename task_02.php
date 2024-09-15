@@ -14,13 +14,24 @@
             public function logging($userMessages);
         }
 
-        class FileLogger implements loggingInterfaceSystem{
+        class MessageFileLogger implements loggingInterfaceSystem{
             public function logging($userMessages){
-                file_put_contents("user.msg", $userMessages . "<br/>", FILE_APPEND);
+                echo"message has been logged" . "<br/>";
             }
         }
 
-        $_File = new FileLogger();
+        class ForDatabaseLogger implements loggingInterfaceSystem{
+            public function logging($userMessages){
+                echo"messageData has been logged" . "<br/>";
+            }
+        }
+
+        $_File = new MessageFileLogger();
+
+        $_File->logging("User is Successfully login");
+        $_File->logging("User is Successfully register");
+
+        $_File = new ForDatabaseLogger();
 
         $_File->logging("User is Successfully login");
         $_File->logging("User is Successfully register");
