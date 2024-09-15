@@ -13,6 +13,20 @@ Create classes to represent geometric shapes, including circles and rectangles. 
     // Area of the circle is pi * radius^2
     // Area of the rectangle is width * height
 
+    abstract class Shape{
+        abstract public function areaMethod();
+    }
+
+    class Circle extends Shape{
+
+        private $shapeRadius;
+        public function __construct($shapeRadius){
+            $this->shapeRadius = $shapeRadius;
+        }
+        public function areaMethod(){
+
+        }
+    }
     function showArea(Shape $shape){
         echo"Area of the ". $shape->getName() . " is " . $shape->area();
     }
